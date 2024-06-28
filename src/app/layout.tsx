@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 import './globals.css'
 import { ReactNode } from 'react'
+import { Providers } from '@/store/provider'
 
 const font = Roboto({ subsets: ['latin'], weight: ['400'] })
 
@@ -16,8 +17,10 @@ export default function RootLayout({
   children: ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={font.className}>{children}</body>
-    </html>
+    <Providers>
+      <html lang="en">
+        <body className={font.className}>{children}</body>
+      </html>
+    </Providers>
   )
 }
